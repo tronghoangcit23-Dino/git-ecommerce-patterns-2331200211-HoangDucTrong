@@ -1,15 +1,18 @@
-// TODO: Implement the Singleton pattern.
 // 1. Create a variable `instance` to hold the single instance of the class.
-// 2. In the constructor, check if `instance` already exists.
-// 3. If it exists, return `instance`.
-// 4. If it does not exist, initialize the class properties (like `this.products`)
-//    and assign the new instance to `instance`.
-// 5. Export the class.
+let instance = null;
 
 class CartService {
     constructor() {
-        // ... your implementation here ...
+        // 2. In the constructor, check if `instance` already exists.
+        if (instance) {
+            // 3. If it exists, return `instance`.
+            return instance;
+        }
+
+        // 4. If it does not exist, initialize the class properties (like `this.products`)
         this.products = [];
+        // and assign the new instance to `instance`.
+        instance = this;
     }
 
     addProduct(product) {
@@ -25,4 +28,5 @@ class CartService {
     }
 }
 
+// 5. Export the class.
 export { CartService };
